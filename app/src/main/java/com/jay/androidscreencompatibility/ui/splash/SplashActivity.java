@@ -1,6 +1,7 @@
 package com.jay.androidscreencompatibility.ui.splash;
 
 import com.jay.androidscreencompatibility.R;
+import com.jay.androidscreencompatibility.ui.main.MainActivity;
 import com.jay.androidscreencompatibility.utils.ScreenUtils;
 
 import android.content.Intent;
@@ -27,5 +28,11 @@ public class SplashActivity extends AppCompatActivity {
         });
         TextView tvPxOrDp = findViewById(R.id.tv_px);
         tvPxOrDp.setText("H: " + ScreenUtils.dp2px(100)+" px");
+        tvPxOrDp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
+            }
+        });
     }
 }
