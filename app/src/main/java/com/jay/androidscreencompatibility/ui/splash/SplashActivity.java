@@ -1,14 +1,13 @@
 package com.jay.androidscreencompatibility.ui.splash;
 
 import com.jay.androidscreencompatibility.R;
-import com.jay.androidscreencompatibility.ui.main.MainActivity;
+import com.jay.androidscreencompatibility.ui.main.DemoActivity;
 import com.jay.androidscreencompatibility.utils.ScreenUtils;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class SplashActivity extends AppCompatActivity {
@@ -31,7 +30,7 @@ public class SplashActivity extends AppCompatActivity {
         tvPxOrDp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                startActivity(new Intent(SplashActivity.this, DemoActivity.class));
             }
         });
     }

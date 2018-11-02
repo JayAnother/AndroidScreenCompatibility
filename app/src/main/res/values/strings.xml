@@ -1,3 +1,60 @@
 <resources>
     <string name="app_name">AndroidScreenCompatibility</string>
+    <string name="info_relative_positioning">
+        \n
+        layout_constraintLeft_toLeftOf
+        layout_constraintLeft_toRightOf
+        layout_constraintRight_toLeftOf
+        layout_constraintRight_toRightOf
+        layout_constraintTop_toTopOf
+        layout_constraintTop_toBottomOf
+        layout_constraintBottom_toTopOf
+        layout_constraintBottom_toBottomOf
+        layout_constraintBaseline_toBaselineOf
+        layout_constraintStart_toEndOf
+        layout_constraintStart_toStartOf
+        layout_constraintEnd_toStartOf
+        layout_constraintEnd_toEndOf
+    </string>
+    <string name="info_margins">
+        \n
+        android:layout_marginStart\n
+        android:layout_marginEnd\n
+        android:layout_marginLeft\n
+        android:layout_marginTop\n
+        android:layout_marginRight\n
+        android:layout_marginBottom\n\n
+        layout_goneMarginStart\n
+        layout_goneMarginEnd\n
+        layout_goneMarginLeft\n
+        layout_goneMarginTop\n
+        layout_goneMarginRight\n
+        layout_goneMarginBottom\n
+    </string>
+    <string name="info_centering_positioning">
+        \n
+        layout_constraintLeft_toLeftOf="parent"\n
+        layout_constraintRight_toRightOf="parent"\n
+        layout_constraintTop_toTopOf="parent"\n
+        layout_constraintBottom_toBottomOf="parent"\n
+    </string>
+    <string name="info_bias">
+        \n
+        layout_constraintHorizontal_bias\n
+        layout_constraintVertical_bias\n
+    </string>
+    <string name="info_circular_positioning">
+        \n
+        layout_constraintCircle\n
+        layout_constraintCircleRadius\n
+        layout_constraintCircleAngle\n
+    </string>
+    <string name="info_visibility_behavior">
+        \n
+        For the layout pass, their dimension will be considered as zero (basically, they will be
+        resolved to a point)\n
+        If they have constraints to other widgets they will still be respected, but any margins will
+        be as if equals to zero
+    </string>
+
 </resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.jay.androidscreencompatibility">
 
@@ -17,22 +16,30 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".ui.splash.SplashActivityPx"/>
         <activity android:name=".ui.splash.SplashActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".ui.main.DemoActivity"
             android:theme="@style/AppThemeWithBar">
-        </activity>
-        <activity android:name=".ui.layout.LayoutDirectionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity
+            android:label="LayoutDirectionActivity"
+            android:name=".ui.layout.LayoutDirectionActivity">
+        </activity>
+        <activity
+            android:label="ConstraintLayoutActivity"
+            android:name=".ui.layout.ConstraintLayoutActivity">
         </activity>
     </application>
 
