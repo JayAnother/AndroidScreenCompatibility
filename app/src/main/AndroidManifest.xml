@@ -14,13 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeWithBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.splash.SplashActivityPx"/>
         <activity android:name=".ui.splash.SplashActivity">
-
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN"/> -->
-
-
             <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
             <!-- </intent-filter> -->
         </activity>

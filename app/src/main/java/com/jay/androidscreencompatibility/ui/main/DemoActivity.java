@@ -33,12 +33,13 @@ public class DemoActivity extends AppCompatActivity {
     }
     private List<DemoAdapter.Demo> getDemoData() {
         List<DemoAdapter.Demo> demoList = new ArrayList<>();
+        demoList.add(new DemoAdapter.Demo("SplashActivity", "SplashActivity",
+            SplashActivity.class));
         demoList.add(new DemoAdapter.Demo("LayoutDirectionActivity", "LayoutDirectionActivity",
             LayoutDirectionActivity.class));
         demoList.add(new DemoAdapter.Demo("ConstraintLayoutActivity", "ConstraintLayoutActivity",
             ConstraintLayoutActivity.class));
-        demoList.add(new DemoAdapter.Demo("SplashActivity", "SplashActivity",
-            SplashActivity.class));
+
         return demoList;
     }
 

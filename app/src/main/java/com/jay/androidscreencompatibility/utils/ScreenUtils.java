@@ -11,7 +11,9 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.Build;
+
 import androidx.annotation.NonNull;
+
 import android.util.DisplayMetrics;
 import android.view.Surface;
 import android.view.View;
@@ -32,17 +34,19 @@ public final class ScreenUtils {
         int screenWidthPx = getScreenWidthInPixel();
         int screenHeightPx = getScreenHeightInPixel();
         float screenDensity = getScreenDensity();
+        float screenScaledDensity = getScreenScaledDensity();
         float screenDensityDpi = getScreenDensityDpi();
         float screenWidthDp = getScreenWidthInDp();
         float screenHeightDp = getScreenHeightInDp();
-        str += DeviceUtils.getDeviceModel() + " (" + DeviceUtils.getDeviceBrand()
-            + ") / " + DeviceUtils.getDeviceVersionName()
-            + " (" + DeviceUtils.getDeviceVersionCode() + ")\n";
-        str += String.valueOf(screenInch) + " (inch)\n";
-        str += screenHeightPx + " * " + screenWidthPx + " (px)\n";
-        str += screenHeightDp + " * " + screenWidthDp + " (dp)\n";
-        str += String.valueOf(screenDensity) + " (density)\n";
-        str += String.valueOf(screenDensityDpi) + "(dpi)";
+        str += "设备名称：" + DeviceUtils.getDeviceModel() + " (" + DeviceUtils.getDeviceBrand() + ")\n";
+        str += "系统版本：" + DeviceUtils.getDeviceVersionName() + " (" + DeviceUtils
+            .getDeviceVersionCode() + ")\n";
+        str += "屏幕尺寸（inch）：" + String.valueOf(screenInch) + "\n";
+        str += "屏幕大小（px）：" + screenHeightPx + " * " + screenWidthPx + "\n";
+        str += "屏幕大小（dp）：" + screenHeightDp + " * " + screenWidthDp + "\n";
+        str += "屏幕密度 (density)：" + String.valueOf(screenDensity) + "\n";
+        str += "屏幕密度 (scaledDensity)：" + String.valueOf(screenScaledDensity) + "\n";
+        str += "像素密度 (dpi) ：" + String.valueOf(screenDensityDpi) ;
         return str;
     }
 
