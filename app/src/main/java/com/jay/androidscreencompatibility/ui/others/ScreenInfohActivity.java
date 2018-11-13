@@ -1,4 +1,4 @@
-package com.jay.androidscreencompatibility.ui.splash;
+package com.jay.androidscreencompatibility.ui.others;
 
 import com.jay.androidscreencompatibility.R;
 import com.jay.androidscreencompatibility.ui.main.DemoActivity;
@@ -7,7 +7,6 @@ import com.jay.androidscreencompatibility.utils.ScreenUtils;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SplashActivity extends AppCompatActivity {
+public class ScreenInfohActivity extends AppCompatActivity {
 
     @BindView(R.id.tv_info)
     TextView tvInfo;
@@ -39,7 +38,7 @@ public class SplashActivity extends AppCompatActivity {
 
     @OnClick(R.id.tv_info)
     public void onViewClicked() {
-        startActivity(new Intent(SplashActivity.this, DemoActivity.class));
+        startActivity(new Intent(ScreenInfohActivity.this, DemoActivity.class));
         finish();
     }
 }

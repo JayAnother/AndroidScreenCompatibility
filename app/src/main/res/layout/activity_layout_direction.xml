@@ -5,7 +5,7 @@
     android:background="@color/bg_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.layout.LayoutDirectionActivity">
+    tools:context=".ui.others.LayoutDirectionActivity">
     <!--
        More info about native RTL support in Android 4.2->
        https://android-developers.googleblog.com/2013/03/native-rtl-support-in-android-42.html

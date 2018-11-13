@@ -1,9 +1,12 @@
 package com.jay.androidscreencompatibility.ui.main;
 
 import com.jay.androidscreencompatibility.R;
-import com.jay.androidscreencompatibility.ui.layout.ConstraintLayoutActivity;
-import com.jay.androidscreencompatibility.ui.layout.LayoutDirectionActivity;
-import com.jay.androidscreencompatibility.ui.splash.SplashActivity;
+import com.jay.androidscreencompatibility.ui.adaptation_dp.DPAdaptActivity;
+import com.jay.androidscreencompatibility.ui.adaptation_sw.SWAdaptActivity;
+import com.jay.androidscreencompatibility.ui.adaptation_tt.TTAdaptActivity;
+import com.jay.androidscreencompatibility.ui.others.ConstraintLayoutActivity;
+import com.jay.androidscreencompatibility.ui.others.LayoutDirectionActivity;
+import com.jay.androidscreencompatibility.ui.others.ScreenInfohActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,12 +36,18 @@ public class DemoActivity extends AppCompatActivity {
     }
     private List<DemoAdapter.Demo> getDemoData() {
         List<DemoAdapter.Demo> demoList = new ArrayList<>();
-        demoList.add(new DemoAdapter.Demo("SplashActivity", "SplashActivity",
-            SplashActivity.class));
+        demoList.add(new DemoAdapter.Demo("ScreenInfohActivity", "ScreenInfohActivity",
+            ScreenInfohActivity.class));
         demoList.add(new DemoAdapter.Demo("LayoutDirectionActivity", "LayoutDirectionActivity",
             LayoutDirectionActivity.class));
         demoList.add(new DemoAdapter.Demo("ConstraintLayoutActivity", "ConstraintLayoutActivity",
             ConstraintLayoutActivity.class));
+        demoList.add(new DemoAdapter.Demo("DPAdaptActivity", "DP直接适配",
+            DPAdaptActivity.class));
+        demoList.add(new DemoAdapter.Demo("SWAdaptActivity", "最小宽度限定符适配方案",
+            SWAdaptActivity.class));
+        demoList.add(new DemoAdapter.Demo("TTAdaptActivity", "今日头条适配方案",
+            TTAdaptActivity.class));
 
         return demoList;
     }

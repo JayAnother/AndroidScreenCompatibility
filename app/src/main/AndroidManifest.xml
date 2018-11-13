@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeWithBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.splash.SplashActivity">
+        <activity android:name=".ui.others.ScreenInfohActivity">
+
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN"/> -->
             <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
@@ -30,12 +31,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:label="LayoutDirectionActivity"
-            android:name=".ui.layout.LayoutDirectionActivity">
+            android:name=".ui.others.LayoutDirectionActivity"
+            android:label="LayoutDirectionActivity">
         </activity>
         <activity
-            android:label="ConstraintLayoutActivity"
-            android:name=".ui.layout.ConstraintLayoutActivity">
+            android:name=".ui.others.ConstraintLayoutActivity"
+            android:label="ConstraintLayoutActivity">
+        </activity>
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".ui.adaptation_dp.DPAdaptActivity">
+        </activity>
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".ui.adaptation_sw.SWAdaptActivity">
+        </activity>
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".ui.adaptation_tt.TTAdaptActivity">
         </activity>
     </application>
 

@@ -1,4 +1,4 @@
-package com.jay.androidscreencompatibility.ui.layout;
+package com.jay.androidscreencompatibility.ui.others;
 
 import com.jay.androidscreencompatibility.R;
 

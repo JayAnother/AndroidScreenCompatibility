@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorPrimary"
-    tools:context=".ui.splash.SplashActivity">
+    tools:context=".ui.others.ScreenInfohActivity">
 
     <TextView
         android:id="@+id/tv_info"
@@ -34,9 +34,10 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:background="@color/seashell"
-            android:textSize="@dimen/dp_30"
+            android:textSize="@dimen/sp_30"
             android:gravity="center"
-            android:text="H:100dp" tools:ignore="HardcodedText"/>
+            android:text="H:100dp"
+            tools:ignore="HardcodedText"/>
 
         <TextView
             android:id="@+id/tv_px"
@@ -47,7 +48,8 @@
             android:background="@color/seashell"
             android:textSize="@dimen/sp_30"
             android:gravity="center"
-            android:text="H:xxxpx" tools:ignore="HardcodedText"/>
+            android:text="H:xxxpx"
+            tools:ignore="HardcodedText"/>
     </LinearLayout>
 
     <LinearLayout
