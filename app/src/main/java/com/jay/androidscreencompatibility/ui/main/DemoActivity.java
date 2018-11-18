@@ -1,9 +1,11 @@
 package com.jay.androidscreencompatibility.ui.main;
 
 import com.jay.androidscreencompatibility.R;
+import com.jay.androidscreencompatibility.ui.adaptation_bar.DisplayCutoutActivity;
+import com.jay.androidscreencompatibility.ui.adaptation_density.DensityAdaptActivity;
 import com.jay.androidscreencompatibility.ui.adaptation_dp.DPAdaptActivity;
 import com.jay.androidscreencompatibility.ui.adaptation_sw.SWAdaptActivity;
-import com.jay.androidscreencompatibility.ui.adaptation_tt.TTAdaptActivity;
+import com.jay.androidscreencompatibility.ui.adaptation_view.ViewAdaptActivity;
 import com.jay.androidscreencompatibility.ui.others.ConstraintLayoutActivity;
 import com.jay.androidscreencompatibility.ui.others.LayoutDirectionActivity;
 import com.jay.androidscreencompatibility.ui.others.ScreenInfohActivity;
@@ -46,8 +48,12 @@ public class DemoActivity extends AppCompatActivity {
             DPAdaptActivity.class));
         demoList.add(new DemoAdapter.Demo("SWAdaptActivity", "最小宽度限定符适配方案",
             SWAdaptActivity.class));
-        demoList.add(new DemoAdapter.Demo("TTAdaptActivity", "今日头条适配方案",
-            TTAdaptActivity.class));
+        demoList.add(new DemoAdapter.Demo("DensityAdaptActivity", "今日头条适配方案",
+            DensityAdaptActivity.class));
+        demoList.add(new DemoAdapter.Demo("ViewAdaptActivity", "自定义View适配方案",
+            ViewAdaptActivity.class));
+        demoList.add(new DemoAdapter.Demo("DisplayCutoutActivity", "刘海屏幕适配",
+            DisplayCutoutActivity.class));
 
         return demoList;
     }

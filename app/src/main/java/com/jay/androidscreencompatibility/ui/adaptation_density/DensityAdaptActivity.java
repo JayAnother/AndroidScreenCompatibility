@@ -1,17 +1,17 @@
-package com.jay.androidscreencompatibility.ui.adaptation_dp;
+package com.jay.androidscreencompatibility.ui.adaptation_density;
 
 import com.jay.androidscreencompatibility.R;
-import com.jay.androidscreencompatibility.ui.adaptation_density.Density;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class DPAdaptActivity extends AppCompatActivity {
+public class DensityAdaptActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dp_adapt);
+        Density.setDensity(getApplication(),this);
+        setContentView(R.layout.activity_tt_adapt);
     }
 }
