@@ -59,13 +59,13 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_centerInParent="true"
-        android:layout_height="@dimen/px_100">
+        android:layout_height="100px">
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:background="@color/seashell"
-            android:textSize="@dimen/px_50"
+            android:textSize="50px"
             android:gravity="center"
             android:layout_centerInParent="true"
             android:text="H:100px"/>
@@ -77,7 +77,7 @@
             android:textStyle="bold"
             android:layout_height="match_parent"
             android:background="@color/seashell"
-            android:textSize="@dimen/px_50"
+            android:textSize="50px"
             android:gravity="center"
             android:text="H:xxddp"/>
     </LinearLayout>

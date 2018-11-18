@@ -15,12 +15,15 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Surface;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 public final class ScreenUtils {
 
@@ -46,8 +49,52 @@ public final class ScreenUtils {
         str += "屏幕大小（dp）：" + screenHeightDp + " * " + screenWidthDp + "\n";
         str += "屏幕密度 (density)：" + String.valueOf(screenDensity) + "\n";
         str += "屏幕密度 (scaledDensity)：" + String.valueOf(screenScaledDensity) + "\n";
-        str += "像素密度 (dpi) ：" + String.valueOf(screenDensityDpi) ;
+        str += "像素密度 (dpi) ：" + String.valueOf(screenDensityDpi);
         return str;
+    }
+
+    public static String getScreenInfo2() {
+        String str = "";
+        double screenInch = getScreenInch();
+        int screenWidthPx = getScreenWidthInPixel();
+        int screenHeightPx = getScreenHeightInPixel();
+        float screenDensity = getScreenDensity();
+        float screenDensityDpi = getScreenDensityDpi();
+        float screenWidthDp = getScreenWidthInDp();
+        float screenHeightDp = getScreenHeightInDp();
+        str += "(inch)：" + String.valueOf(screenInch) + "\n";
+        str += "(px)：" + screenHeightPx + " * " + screenWidthPx + "\n";
+        str += "(dp)：" + screenHeightDp + " * " + screenWidthDp + "\n";
+        str += "(density)：" + String.valueOf(screenDensity) + "\n";
+        str += "(dpi)：" + String.valueOf(screenDensityDpi);
+        return str;
+    }
+
+    public static String getScreenWidgetInfo(int height, int width) {
+        String str = "";
+        double widthRatio = (double) width / (double) getScreenWidthInPixel();
+        double heightRatio = (double) height / (double) getScreenHeightInPixel();
+        str += "W：" + width + "\n";
+        str += "H：" + height + "\n";
+        str += "W/S：" + getScaledDouble(widthRatio, 4, 4) + "\n";
+        str += "H/S：" + getScaledDouble(heightRatio, 4, 4);
+        return str;
+    }
+
+    private static int[] getMeasuredViewSize(View view) {
+        int size[] = new int[2];
+        int width = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        int height = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        view.measure(width, height);
+        size[0] = view.getMeasuredWidth();
+        size[1] = view.getMeasuredHeight();
+        return size;
+    }
+
+    private static double getScaledDouble(double value, int scale, int mode) {
+        BigDecimal bd = new BigDecimal(value);
+        bd = bd.setScale(scale, mode);
+        return bd.doubleValue();
     }
 
     /**
