@@ -8,10 +8,11 @@ import android.util.DisplayMetrics;
 
 /**
  * Created by Jay on 2018/11/17.
+ * https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247484502&idx=2&sn=a60ea223de4171dd2022bc2c71e09351&chksm=e9d0cfb4dea746a2e2c470448a85df0c0e7dd059099ca52a2fec0311d12b7279b3d6f1d137be&mpshare=1&scene=24&srcid=1108FLwb8baf6cjj7Bdbd0GW#rd
  */
 public class Density {
 
-    private static final int DEFAULT_WIDTH = 360;
+    private static final int DEFAULT_WIDTH_DP = 360;
 
     private static float appDensity;
 
@@ -40,9 +41,35 @@ public class Density {
                 }
             });
         }
-        //获取目标Density
-        float targetDensity = displayMetrics.widthPixels / DEFAULT_WIDTH;
-        float targetScaleDensity = targetDensity + (appScaleDensity / appDensity);
+        /**
+         *   float targetDensity = displayMetrics.widthPixels / DEFAULT_WIDTH_DP;
+         *   float targetScaleDensity = targetDensity + (appScaleDensity % appDensity);
+         *   int targetDensityDpi = (int) (targetDensity * 160);
+         *
+         *  设计：Pixels=1080*1920 density=3.0 densityDpi=480
+         *
+         * targetDensity=1080/360=3
+         * targetScaleDensity=3+(3%3)=3
+         * targetDensityDpi=3*160=480
+         *
+         * Device 1: Pixels=720*1280 density=2.0 densityDpi=320
+         * targetDensity=720/360=2
+         * targetScaleDensity=2+(2%2)=2
+         * targetDensityDpi=2*160=320
+         *
+         * Device 2: Pixels=1080*1920 density=2.625 densityDpi=420
+         * targetDensityDpi=2.23125(small) -> 2.625(default) -> 3.01875(large) -> 3.4125(largest)
+         *          差值：               0.39375          0.39375           0.39375
+         *          倍数：   0.85`             1`                1.15`             1.30`
+         *
+         * targetDensity=1080/360=3
+         * targetScaleDensity=3+(2.625 % 2.625)=3
+         * targetScaleDensity=3+(3.01875 % 2.625)=3.15 (large)
+         * targetDensityDpi=3*160=480
+         */
+        //获取目标density
+        float targetDensity = displayMetrics.widthPixels / DEFAULT_WIDTH_DP;
+        float targetScaleDensity = targetDensity * (appScaleDensity / appDensity);
         int targetDensityDpi = (int) (targetDensity * 160);
         //设置Activity的density
         DisplayMetrics activityDisplayMetrics = activity.getResources().getDisplayMetrics();

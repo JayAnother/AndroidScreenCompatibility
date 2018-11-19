@@ -32,7 +32,6 @@ public class DPAdaptActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dp_adapt_test);
         ButterKnife.bind(this);
         tvScreenInfo.setText("Screen Info: \n\n" + ScreenUtils.getScreenInfo2());
-
         ViewTreeObserver vto = tvShape.getViewTreeObserver();
         vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             public boolean onPreDraw() {

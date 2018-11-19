@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.ViewTreeObserver;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ public class DensityAdaptActivity extends AppCompatActivity {
     @BindView(R.id.tv_shape)
     TextView tvShape;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
