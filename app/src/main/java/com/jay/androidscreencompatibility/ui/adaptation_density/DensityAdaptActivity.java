@@ -14,33 +14,16 @@ import android.widget.TextView;
 
 public class DensityAdaptActivity extends AppCompatActivity {
 
-    @BindView(R.id.tv_data_info)
-    TextView tvDataInfo;
-
-    @BindView(R.id.tv_screen_info)
-    TextView tvScreenInfo;
-
-    @BindView(R.id.tv_shape)
-    TextView tvShape;
+    @BindView(R.id.tv_info)
+    TextView tvInfo;
 
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Density.setDensity(getApplication(), this);
-        setContentView(R.layout.activity_tt_adapt_test);
+        setContentView(R.layout.activity_tt_adapt);
         ButterKnife.bind(this);
-        tvScreenInfo.setText("Screen Info: \n\n" + ScreenUtils.getScreenInfo2());
-
-        ViewTreeObserver vto = tvShape.getViewTreeObserver();
-        vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-            public boolean onPreDraw() {
-                int height = tvShape.getMeasuredHeight();
-                int width = tvShape.getMeasuredWidth();
-                tvDataInfo
-                    .setText("Widget Info: \n\n" + ScreenUtils.getScreenWidgetInfo(height, width));
-                return true;
-            }
-        });
+        tvInfo.setText("Density: \n" + ScreenUtils.getScreenInfo2());
     }
 }

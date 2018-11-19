@@ -5,14 +5,18 @@ import android.app.Application;
 import android.content.ComponentCallbacks;
 import android.content.res.Configuration;
 import android.util.DisplayMetrics;
+import android.util.Log;
 
 /**
  * Created by Jay on 2018/11/17.
- * https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247484502&idx=2&sn=a60ea223de4171dd2022bc2c71e09351&chksm=e9d0cfb4dea746a2e2c470448a85df0c0e7dd059099ca52a2fec0311d12b7279b3d6f1d137be&mpshare=1&scene=24&srcid=1108FLwb8baf6cjj7Bdbd0GW#rd
+ * https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247484502&idx=2&sn
+ * =a60ea223de4171dd2022bc2c71e09351&chksm
+ * =e9d0cfb4dea746a2e2c470448a85df0c0e7dd059099ca52a2fec0311d12b7279b3d6f1d137be&mpshare=1&scene
+ * =24&srcid=1108FLwb8baf6cjj7Bdbd0GW#rd
  */
 public class Density {
 
-    private static final int DEFAULT_WIDTH_DP = 360;
+    private static final float DEFAULT_WIDTH_DP = 360.0f;
 
     private static float appDensity;
 
@@ -68,7 +72,7 @@ public class Density {
          * targetDensityDpi=3*160=480
          */
         //获取目标density
-        float targetDensity = displayMetrics.widthPixels / DEFAULT_WIDTH_DP;
+        float targetDensity = (float) displayMetrics.widthPixels / DEFAULT_WIDTH_DP;
         float targetScaleDensity = targetDensity * (appScaleDensity / appDensity);
         int targetDensityDpi = (int) (targetDensity * 160);
         //设置Activity的density
@@ -76,6 +80,7 @@ public class Density {
         activityDisplayMetrics.density = targetDensity;
         activityDisplayMetrics.scaledDensity = targetScaleDensity;
         activityDisplayMetrics.densityDpi = targetDensityDpi;
+
     }
 
 }

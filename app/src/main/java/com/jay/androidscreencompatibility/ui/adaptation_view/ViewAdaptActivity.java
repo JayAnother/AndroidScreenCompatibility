@@ -14,32 +14,11 @@ import android.widget.TextView;
 
 public class ViewAdaptActivity extends AppCompatActivity {
 
-    @BindView(R.id.tv_data_info)
-    TextView tvDataInfo;
-
-    @BindView(R.id.tv_screen_info)
-    TextView tvScreenInfo;
-
-    @BindView(R.id.tv_shape)
-    TextView tvShape;
-
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scalable_view_test);
+        setContentView(R.layout.activity_scalable_view);
         ButterKnife.bind(this);
-        tvScreenInfo.setText("Screen Info: \n\n" + ScreenUtils.getScreenInfo2());
-
-        ViewTreeObserver vto = tvShape.getViewTreeObserver();
-        vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-            public boolean onPreDraw() {
-                int height = tvShape.getMeasuredHeight();
-                int width = tvShape.getMeasuredWidth();
-                tvDataInfo
-                    .setText("Widget Info: \n\n" + ScreenUtils.getScreenWidgetInfo(height, width));
-                return true;
-            }
-        });
     }
 }
