@@ -1,5 +1,6 @@
 package com.jay.androidscreencompatibility;
 
+import com.jay.androidscreencompatibility.ui.adaptation_density.DensityUtils;
 import android.app.Application;
 
 /**
@@ -12,6 +13,7 @@ public class MyApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        DensityUtils.initDensity(this);
         application= (MyApp) getApplicationContext();
     }
 

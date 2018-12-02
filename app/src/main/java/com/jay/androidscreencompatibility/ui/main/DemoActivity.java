@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DemoActivity extends AppCompatActivity {
+public class DemoActivity extends BaseActivity {
 
     @BindView(R.id.recyclerview)
     RecyclerView recyclerview;
@@ -30,12 +30,16 @@ public class DemoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
         recyclerview.setHasFixedSize(true);
         recyclerview.setLayoutManager(getLinearLayoutManager());
         recyclerview.setAdapter(getDemoAdapter());
     }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.activity_main;
+    }
+
     private List<DemoAdapter.Demo> getDemoData() {
         List<DemoAdapter.Demo> demoList = new ArrayList<>();
         demoList.add(new DemoAdapter.Demo("ScreenInfohActivity", "ScreenInfohActivity",

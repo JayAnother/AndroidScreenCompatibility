@@ -1,6 +1,7 @@
 package com.jay.androidscreencompatibility.ui.adaptation_bar;
 
 import com.jay.androidscreencompatibility.R;
+import com.jay.androidscreencompatibility.ui.main.BaseActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,11 +14,15 @@ import android.view.WindowManager;
 /**
  * 适配android 9.0凹口屏幕
  */
-public class DisplayCutoutActivity extends AppCompatActivity {
+public class DisplayCutoutActivity extends BaseActivity {
+
+    @Override
+    protected int getLayout() {
+        return R.layout.activity_display_cutout;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         //1,设置全屏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -43,7 +48,7 @@ public class DisplayCutoutActivity extends AppCompatActivity {
         int visibility = getWindow().getDecorView().getSystemUiVisibility();
         visibility |= flags;
         getWindow().getDecorView().setSystemUiVisibility(visibility);
+        super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_display_cutout);
     }
 }

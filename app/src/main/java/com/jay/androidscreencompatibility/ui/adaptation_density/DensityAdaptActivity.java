@@ -1,6 +1,7 @@
 package com.jay.androidscreencompatibility.ui.adaptation_density;
 
 import com.jay.androidscreencompatibility.R;
+import com.jay.androidscreencompatibility.ui.main.BaseActivity;
 import com.jay.androidscreencompatibility.utils.ScreenUtils;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,9 +22,10 @@ public class DensityAdaptActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Density.setDensity(getApplication(), this);
+        DensityUtils.setOrientation(this, DensityUtils.Orientation.VERTICAL);
         setContentView(R.layout.activity_tt_adapt);
         ButterKnife.bind(this);
         tvInfo.setText("Density: \n" + ScreenUtils.getScreenInfo2());
     }
+
 }
