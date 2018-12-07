@@ -8,6 +8,7 @@ import com.jay.androidscreencompatibility.ui.adaptation_sw.SWAdaptActivity;
 import com.jay.androidscreencompatibility.ui.adaptation_view.ViewAdaptActivity;
 import com.jay.androidscreencompatibility.ui.others.ConstraintLayoutActivity;
 import com.jay.androidscreencompatibility.ui.others.LayoutDirectionActivity;
+import com.jay.androidscreencompatibility.ui.others.ScreenInfoActivityPlus;
 import com.jay.androidscreencompatibility.ui.others.ScreenInfohActivity;
 
 import android.content.Intent;
@@ -44,6 +45,8 @@ public class DemoActivity extends BaseActivity {
         List<DemoAdapter.Demo> demoList = new ArrayList<>();
         demoList.add(new DemoAdapter.Demo("ScreenInfohActivity", "ScreenInfohActivity",
             ScreenInfohActivity.class));
+        demoList.add(new DemoAdapter.Demo("ScreenInfoActivityPlus", "ScreenInfoActivityPlus",
+            ScreenInfoActivityPlus.class));
         demoList.add(new DemoAdapter.Demo("LayoutDirectionActivity", "LayoutDirectionActivity",
             LayoutDirectionActivity.class));
         demoList.add(new DemoAdapter.Demo("ConstraintLayoutActivity", "ConstraintLayoutActivity",

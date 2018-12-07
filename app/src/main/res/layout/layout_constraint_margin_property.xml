@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText"
+    android:layout_width="match_parent"
+    android:layout_height="500dp">
+    <!--
+          在 ConstraintLayout 中，除了我们之前设置边距的方式外，又新增了设置当
+          “被依赖” 控件为 GONE 时的边距，适用于当被依赖的控件为 GONE 时，依赖的控件的位置的变化
+           如果不需要变化，可以设置被依赖控件为 invisible 或者 为 gone 时默认的处理方式即可。
+           对应的也有以下 6 个属性：
+             layout_goneMarginStart
+             layout_goneMarginEnd
+             layout_goneMarginLeft
+             layout_goneMarginTop
+             layout_goneMarginRight
+             layout_goneMarginBottom
+           约束布局中：当控件设为GONE时，被认为尺寸为0。可以理解为布局上的一个点，
+           若GONE的控件对其它控件有约束，则约束保留并生效，但所有的边距（margin）会清零。
+        -->
+    <Button
+        android:id="@+id/btn_margin_a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A"
+        android:visibility="visible"
+        tools:ignore="HardcodedText"/>
+
+    <Button
+        android:id="@+id/btn_margin_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="B"
+        app:layout_constraintLeft_toRightOf="@id/btn_margin_a"
+        app:layout_goneMarginLeft="160dp"/>
+
+    <Button
+        android:id="@+id/btn_margin_a_gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="设置A为GONE"
+        android:visibility="visible"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

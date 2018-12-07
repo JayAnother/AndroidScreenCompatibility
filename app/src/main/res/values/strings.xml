@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">AndroidScreenCompatibility</string>
     <string name="info_relative_positioning">
-        \n
-        layout_constraintLeft_toLeftOf
+        \nlayout_constraintLeft_toLeftOf
         layout_constraintLeft_toRightOf
         layout_constraintRight_toLeftOf
         layout_constraintRight_toRightOf
@@ -17,19 +16,18 @@
         layout_constraintEnd_toEndOf
     </string>
     <string name="info_margins">
-        \n
-        android:layout_marginStart\n
-        android:layout_marginEnd\n
-        android:layout_marginLeft\n
-        android:layout_marginTop\n
-        android:layout_marginRight\n
-        android:layout_marginBottom\n\n
+        在 ConstraintLayout 中，除了我们之前设置边距的方式外，又新增了设置当
+        “被依赖” 控件为 GONE 时的边距，适用于当被依赖的控件为 GONE 时，依赖的控件的位置的变化
+        如果不需要变化，可以设置被依赖控件为 invisible 或者 为 gone 时默认的处理方式即可。\n\n
+        对应的也有以下 6 个属性：\n
         layout_goneMarginStart\n
         layout_goneMarginEnd\n
         layout_goneMarginLeft\n
         layout_goneMarginTop\n
         layout_goneMarginRight\n
-        layout_goneMarginBottom\n
+        layout_goneMarginBottom\n\n
+        约束布局中：当控件设为GONE时，被认为尺寸为0。可以理解为布局上的一个点，\n
+        若GONE的控件对其它控件有约束，则约束保留并生效，但所有的边距（margin）会清零。
     </string>
     <string name="info_centering_positioning">
         \n

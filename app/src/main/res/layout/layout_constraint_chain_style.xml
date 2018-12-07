@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText"
+    android:layout_width="match_parent"
+    android:layout_height="500dp">
+    <!--
+    链是在一个维度，管理一组控件（水平或者垂直）的方式
+     它们在同一个方向上双向引用。
+
+     链有以下几种样式：
+     1.Spread Chain 展开的样式，相互约束的各控件之间的间距相等（包含链外部的约束）；
+
+     2.Spread Inside Chain 展开的样式，相互约束的各控件内部之间的间距相等，可以理解为链的内部，
+     和第一种样式，可这样区分，一种是对外，一种是对内；
+
+     3.Packed Chain 链的元素将被打包在一起
+
+     4.Packed Chain With Bias 链的元素将被打包在一起，相比 3 多了偏移量
+
+     5.Spread Chain With Weight 相比 1 多了可以设置链各元素的权重来分配剩余的可用空间
+
+    -->
+
+    <!-- A、B、C 组成了 spread chain -->
+    <Button
+        android:id="@+id/btnA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btnB"/>
+
+    <Button
+        android:id="@+id/btnB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="B"
+        app:layout_constraintLeft_toRightOf="@id/btnA"
+        app:layout_constraintRight_toLeftOf="@id/btnC"/>
+
+    <Button
+        android:id="@+id/btnC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C"
+        app:layout_constraintLeft_toRightOf="@id/btnB"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <!-- D、E、F 组成了 spread_inside chain -->
+    <Button
+        android:id="@+id/btnD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="D"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btnE"
+        app:layout_constraintTop_toBottomOf="@id/btnA"/>
+
+    <Button
+        android:id="@+id/btnE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="E"
+        app:layout_constraintLeft_toRightOf="@id/btnD"
+        app:layout_constraintRight_toLeftOf="@id/btnF"
+        app:layout_constraintTop_toBottomOf="@id/btnA"/>
+
+    <Button
+        android:id="@+id/btnF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="F"
+        app:layout_constraintLeft_toRightOf="@id/btnE"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnA"/>
+
+    <!-- G、H、I 组成了 packed chain -->
+    <Button
+        android:id="@+id/btnG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="G"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btnH"
+        app:layout_constraintTop_toBottomOf="@id/btnD"/>
+
+    <Button
+        android:id="@+id/btnH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="H"
+        app:layout_constraintLeft_toRightOf="@id/btnG"
+        app:layout_constraintRight_toLeftOf="@id/btnI"
+        app:layout_constraintTop_toBottomOf="@id/btnD"/>
+
+    <Button
+        android:id="@+id/btnI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I"
+        app:layout_constraintLeft_toRightOf="@id/btnH"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnD"/>
+
+    <!-- J、K、L 组成了 packed chain with 0.2 bias -->
+    <Button
+        android:id="@+id/btnJ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="J"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btnK"
+        app:layout_constraintTop_toBottomOf="@id/btnG"/>
+
+    <Button
+        android:id="@+id/btnK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="K"
+        app:layout_constraintLeft_toRightOf="@id/btnJ"
+        app:layout_constraintRight_toLeftOf="@id/btnL"
+        app:layout_constraintTop_toBottomOf="@id/btnG"/>
+
+    <Button
+        android:id="@+id/btnL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="L"
+        app:layout_constraintLeft_toRightOf="@id/btnK"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnG"/>
+
+    <!-- M、N、O 组成了 spread chain with weight
+         用法和 LinerLayout 一样，设置为 0dp，则分配剩余可用空间
+         设置对应的 weight 值，则分配对应的比例的空间 -->
+    <Button
+        android:id="@+id/btnM"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="M"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btnN"
+        app:layout_constraintTop_toBottomOf="@id/btnJ"/>
+
+    <Button
+        android:id="@+id/btnN"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="N"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintLeft_toRightOf="@id/btnM"
+        app:layout_constraintRight_toLeftOf="@id/btnO"
+        app:layout_constraintTop_toBottomOf="@id/btnJ"/>
+
+    <Button
+        android:id="@+id/btnO"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="O"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintLeft_toRightOf="@id/btnN"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnJ"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

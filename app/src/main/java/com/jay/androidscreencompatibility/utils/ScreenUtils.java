@@ -1,6 +1,7 @@
 package com.jay.androidscreencompatibility.utils;
 
 import com.jay.androidscreencompatibility.MyApp;
+import com.jay.androidscreencompatibility.R;
 
 import android.app.Activity;
 import android.app.KeyguardManager;
@@ -68,6 +69,59 @@ public final class ScreenUtils {
         str += "(density)：" + String.valueOf(screenDensity) + "\n";
         str += "(dpi)：" + String.valueOf(screenDensityDpi);
         return str;
+    }
+
+    public static String getScreenInfo3(Activity activity) {
+        String str = "";
+        double screenInch = getScreenInch();
+        float screenDensity = getScreenDensity();
+        float screenDensityDpi = getScreenDensityDpi();
+        String screenAspectRatio = getScreenAspectRatio();
+        String size = activity.getResources().getString(R.string.size);
+        String density = activity.getResources().getString(R.string.density);
+        String orientation = activity.getResources().getString(R.string.orientation);
+        String aspectRatio = activity.getResources().getString(R.string.aspect);
+        str += "Device：" + DeviceUtils.getDeviceModel() + " (" + DeviceUtils
+            .getDeviceBrand() + ")\n";
+        str += "Version：" + DeviceUtils.getDeviceVersionName() + " (" + DeviceUtils
+            .getDeviceVersionCode() + ")\n";
+        str += "Size：" + size + " (" + String.valueOf(screenInch) + "\")\n";
+        str += "Density：" + density + " (" + String.valueOf(screenDensity) + ")\n";
+        str += "Orientation：" + orientation + "\n";
+        str += "Aspect ratio：" + aspectRatio + " (" + screenAspectRatio + ")\n";
+        str += "DPI：" + String.valueOf(screenDensityDpi);
+        return str;
+    }
+
+    private static String getScreenAspectRatio() {
+        /*
+           // Is this a long screen?
+        if (((longSizeDp*3)/5) >= (shortSizeDp-1)) {
+            // Anything wider than WVGA (5:3) is considering to be long.
+            screenLayoutLong = true;
+        } else {
+            screenLayoutLong = false;
+        }
+            So if the aspect ratio is wider than 3:5(or 1.667), it will be treated as long screen.
+         */
+        double screenWidthPx = getScreenWidthInPixel();
+        double screenHeightPx = getScreenHeightInPixel();
+        double ratio;
+        if (screenHeightPx > screenWidthPx) {
+            ratio = screenHeightPx / screenWidthPx;
+        } else {
+            ratio = screenWidthPx / screenHeightPx;
+        }
+        if (ratio == 16d / 9d) {
+            return "16:9";
+        } else if (ratio == 18d / 9d) {
+            return "18:9";
+        } else if (ratio == 5d / 3d) {
+            return "5:3";
+        } else if (ratio == 4d / 3d) {
+            return "4:3";
+        }
+        return String.valueOf(getScaledDouble(ratio, 2, 4));
     }
 
     public static String getScreenWidgetInfo(int height, int width) {

@@ -54,6 +54,8 @@
         </activity>
         <activity android:name=".ui.adaptation_view.ViewAdaptActivity">
         </activity>
+        <activity android:name=".ui.others.ScreenInfoActivityPlus">
+        </activity>
     </application>
 
 </manifest>
