@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 public class ViewAdaptActivity extends BaseActivity {
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +22,7 @@ public class ViewAdaptActivity extends BaseActivity {
 
     @Override
     protected int getLayout() {
+        // TODO: 2018/12/10  未完成
         return R.layout.activity_scalable_view;
     }
 }
