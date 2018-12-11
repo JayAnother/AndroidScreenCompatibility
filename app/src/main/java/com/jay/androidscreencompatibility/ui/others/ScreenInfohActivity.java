@@ -22,23 +22,14 @@ public class ScreenInfohActivity extends AppCompatActivity {
     @BindView(R.id.tv_px)
     TextView tvPx;
 
-    @BindView(R.id.tv_dp)
-    TextView tvDp;
-
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.activity_screen_info);
         ButterKnife.bind(this);
         tvInfo.setText(ScreenUtils.getScreenInfo());
         tvPx.setText("H: " + ScreenUtils.dp2px(100) + " px");
-        tvDp.setText("H: " + ScreenUtils.px2dp(100) + " dp");
     }
 
-    @OnClick(R.id.tv_info)
-    public void onViewClicked() {
-        startActivity(new Intent(ScreenInfohActivity.this, DemoActivity.class));
-        finish();
-    }
 }

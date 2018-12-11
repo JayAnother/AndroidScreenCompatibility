@@ -42,16 +42,61 @@ public final class ScreenUtils {
         float screenDensityDpi = getScreenDensityDpi();
         float screenWidthDp = getScreenWidthInDp();
         float screenHeightDp = getScreenHeightInDp();
-        str += "设备名称：" + DeviceUtils.getDeviceModel() + " (" + DeviceUtils.getDeviceBrand() + ")\n";
-        str += "系统版本：" + DeviceUtils.getDeviceVersionName() + " (" + DeviceUtils
-            .getDeviceVersionCode() + ")\n";
+        str += "设备名称：" + DeviceUtils.getDeviceModel() +
+            " (" + DeviceUtils.getDeviceBrand() + ")\n";
+        str += "系统版本：" + DeviceUtils.getDeviceVersionName() +
+            " (" + DeviceUtils.getDeviceVersionCode() + ")\n";
         str += "屏幕尺寸（inch）：" + String.valueOf(screenInch) + "\n";
         str += "屏幕大小（px）：" + screenHeightPx + " * " + screenWidthPx + "\n";
         str += "屏幕大小（dp）：" + screenHeightDp + " * " + screenWidthDp + "\n";
         str += "屏幕密度 (density)：" + String.valueOf(screenDensity) + "\n";
         str += "屏幕密度 (scaledDensity)：" + String.valueOf(screenScaledDensity) + "\n";
-        str += "像素密度 (dpi) ：" + String.valueOf(screenDensityDpi);
+        str += "像素密度 (dpi) ：" + String.valueOf(screenDensityDpi) + "\n\n\n";
+        str += "推荐资源 ：" + "\n";
+        str += "drawable ：" + "drawable-" + getDensityDpiToString((int) screenDensityDpi) + "\n";
+        str += "layout ：" + "layout-" + getSmallestWidthString((int) screenWidthDp,
+            (int) screenHeightDp) + "\n";
+        str += "layout ：" + "layout-" + getSmallestWidthString((int) screenWidthDp,
+            (int) screenHeightDp) + getResolutionString(screenWidthPx, screenHeightPx) + "\n";
+        str += "values ：" + "values-" + getSmallestWidthString((int) screenWidthDp,
+            (int) screenHeightDp) + "\n";
+        str += "values ：" + "values-" + getSmallestWidthString((int) screenWidthDp,
+            (int) screenHeightDp) + getResolutionString(screenWidthPx, screenHeightPx) + "\n";
         return str;
+    }
+
+    private static String getDensityDpiToString(int densityDpi) {
+        String str;
+        if (densityDpi <= 120) {
+            str = "ldpi";
+        } else if (densityDpi <= 160) {
+            str = "mdpi";
+        } else if (densityDpi <= 213) {
+            str = "tvdpi";
+        } else if (densityDpi <= 240) {
+            str = "hdpi";
+        } else if (densityDpi <= 320) {
+            str = "xhdpi";
+        } else if (densityDpi <= 480) {
+            str = "xxhdpi";
+        } else if (densityDpi <= 640) {
+            str = "xxxhdpi";
+        } else {
+            str = "N/A";
+        }
+        return str;
+    }
+
+    private static String getResolutionString(int rw, int rh) {
+        return rw > rh ? "-" + rw + "x" + rh : "-" + rh + "x" + rw;
+    }
+
+    private static String getSmallestWidthString(int dipWidth, int dipHeight) {
+        StringBuilder stringBuilder = new StringBuilder("sw");
+        if (dipWidth >= dipHeight) {
+            dipWidth = dipHeight;
+        }
+        return stringBuilder.append(dipWidth).append("dp").toString();
     }
 
     public static String getScreenInfo2() {
